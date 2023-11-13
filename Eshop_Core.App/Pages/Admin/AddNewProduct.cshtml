@@ -1,0 +1,62 @@
+﻿@page
+@model Eshop_Core.App.Pages.Admin.AddNewProductModel
+@{
+    ViewData["Title"] = "افزودن محصول جدید";
+}
+
+<h2> افزودن محصول </h2>
+<form method="post" enctype="multipart/form-data">
+    <dl class="">
+        <dd>
+            <label asp-for="Product.Name"></label>
+        </dd>
+        <dt>
+            <input asp-for="Product.Name" class="form-control" />
+            <span asp-validation-for="Product.Name"></span>
+        </dt>
+        <dd>
+            <label asp-for="Product.Description"></label>
+        </dd>
+        <dt>
+            <input asp-for="Product.Description" class="form-control" />
+            <span asp-validation-for="Product.Description"></span>
+        </dt>
+        <dd>
+            <label asp-for="Product.Price"></label>
+        </dd>
+        <dt>
+            <input asp-for="Product.Price" class="form-control" />
+            <span asp-validation-for="Product.Price"></span>
+        </dt>
+        <dd>
+            <label asp-for="Product.QuantityInStock"></label>
+        </dd>
+        <dt>
+            <input asp-for="Product.QuantityInStock" class="form-control" />
+            <span asp-validation-for="Product.QuantityInStock"></span>
+        </dt>
+        <dd>
+            <label asp-for="Product.Picturee"></label>
+        </dd>
+        <dt>
+            <input asp-for="Product.Picturee" />
+            <span asp-validation-for="Product.Picturee"></span>
+        </dt>
+        <dd>
+            گروه ها
+        </dd>
+        <dt>
+            @foreach (var item in Model.Product.Categories)
+            {
+                <p>
+                    <input type="checkbox" name="selectedGroups" value="@item.Id" />@item.Name
+                </p>
+            }
+        </dt>
+        <dd>
+        </dd>
+        <dt>
+            <input type="submit" value="ثبت محصول" class="btn btn-success" />
+        </dt>
+    </dl>
+</form>
